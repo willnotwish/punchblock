@@ -216,7 +216,7 @@ module Punchblock
 
         describe "#uuid_foo" do
           it "should execute a FS uuid_* on the current call using bgapi" do
-            stream.expects(:bgapi).once.with("uuid_record #{id} blah.mp3")
+            stream.expects(:api).once.with("uuid_record #{id} blah.mp3")
             subject.uuid_foo 'record', 'blah.mp3'
           end
         end

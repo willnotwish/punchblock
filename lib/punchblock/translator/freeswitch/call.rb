@@ -120,7 +120,7 @@ module Punchblock
         end
 
         def uuid_foo(app, args = '')
-          stream.bgapi "uuid_#{app} #{id} #{args}"
+          stream.api "uuid_#{app} #{id} #{args}"
         end
 
         def dial(dial_command)
