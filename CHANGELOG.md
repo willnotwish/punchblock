@@ -1,4 +1,5 @@
 # [develop](https://github.com/adhearsion/punchblock)
+  * Bugfix: Removed unnecessary use of FreeSWITCH background API
 
 # [v1.5.0](https://github.com/adhearsion/punchblock/compare/v1.4.1...v1.5.0) - [2012-10-01](https://rubygems.org/gems/punchblock/versions/1.5.0)
   * Feature: Input component now supports grammar URLs
