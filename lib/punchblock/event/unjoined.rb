@@ -29,9 +29,26 @@ module Punchblock
         write_attr :'mixer-name', other
       end
 
-      def inspect_attributes # :nodoc:
-        [:call_id, :mixer_name] + super
+      def transfer_disposition
+        read_attr :'transfer-disposition'
       end
+      
+      def transfer_disposition=(other)
+        write_attr :'transfer-disposition', other
+      end
+
+      def transfer_to
+        read_attr :'transfer-to'
+      end
+      
+      def transfer_to=(other)
+        write_attr :'transfer-to', other
+      end
+
+      def inspect_attributes # :nodoc:
+        [:call_id, :mixer_name, :transfer_disposition, :transfer_to] + super
+      end
+
     end # Unjoined
   end
 end # Punchblock

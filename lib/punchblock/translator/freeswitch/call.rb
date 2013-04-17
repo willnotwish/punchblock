@@ -97,7 +97,15 @@ module Punchblock
             command.response = true if command
 
             other_call_id = event[:unique_id] == id ? event[:other_leg_unique_id] : event[:unique_id]
-            send_pb_event Event::Unjoined.new(:call_id => other_call_id)
+
+            # Modified to add extra properties to the Unjoined event
+            transfer_to = event[:variable_transfer_to]
+            if transfer_to
+              event[:variable_transfer_to].match( /att:(?<id>.*)/ ) { |m| transfer_to = m[:id] }
+            end
+
+            send_pb_event Event::Unjoined.new(:call_id => other_call_id, 
+              :transfer_disposition => event[:variable_transfer_disposition], :transfer_to => transfer_to)
           end
 
           register_handler :es, [:has_key?, :scope_variable_punchblock_component_id] => true do |event|
